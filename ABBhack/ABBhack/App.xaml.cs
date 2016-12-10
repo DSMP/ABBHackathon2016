@@ -12,7 +12,7 @@ namespace ABBhack
         public App()
         {
             InitializeComponent();
-
+            // cos
             MainPage = new ABBhack.MainPage();
         }
 
