@@ -46,7 +46,7 @@ namespace ABBhack
                 //    },
                 //    VerticalOptions = LayoutOptions.FillAndExpand
                 //};
-                webView = null;
+                webView.Source = "http://reddit.com";
                 //e = new WebNavigatingEventArgs(e.NavigationEvent,e.Source,new Uri("http://reddit.com").ToString());
                 //e = null;
             }
