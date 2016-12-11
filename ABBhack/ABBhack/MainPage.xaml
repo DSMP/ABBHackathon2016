@@ -5,7 +5,7 @@
              x:Class="ABBhack.MainPage">
   <StackLayout>
 
-    <WebView Source="http://xamarin.com" >
+    <WebView Source="http://www.google.com" >
 
     </WebView>  
   </StackLayout>
