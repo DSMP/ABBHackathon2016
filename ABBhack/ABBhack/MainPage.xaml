@@ -3,12 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ABBhack"
              x:Class="ABBhack.MainPage">
-  <StackLayout>
 
-    <WebView Source="http://www.google.com" >
+    <WebView x:Name="webView" Source="http://google.com" >
 
     </WebView>  
-  </StackLayout>
   
 
 </ContentPage>
