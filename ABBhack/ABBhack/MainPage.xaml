@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:ABBhack"
              x:Class="ABBhack.MainPage">
 
-    <WebView x:Name="webView" Source="http://google.com" >
+    <WebView x:Name="webView" Source="http://dragonsiodev.azurewebsites.net" >
 
     </WebView>  
   

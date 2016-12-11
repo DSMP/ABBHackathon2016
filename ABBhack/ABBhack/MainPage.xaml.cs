@@ -41,11 +41,16 @@ namespace ABBhack
 
                 RestService restService = new RestService();
                 await restService.GetDeviceData();
-                //var d = restService.DeviceData.FotoResistor
-                //var dataToSend = new Device { }
-                //restService.DeviceData.
-
-
+                Models.Device dataToSend = new Models.Device
+                {
+                    Humidity = restService.DeviceData.Humidity,
+                    //todo
+                    Latitude = 1,
+                    Longtitude = 1,
+                    Light = restService.DeviceData.FotoResistor,
+                    Temperature = restService.DeviceData.Temperature
+                };
+                await restService.PostDeviceData(dataToSend);
             }
         }
 
