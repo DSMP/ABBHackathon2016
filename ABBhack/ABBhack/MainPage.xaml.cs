@@ -25,31 +25,35 @@ namespace ABBhack
         }
 
 
-        private void WebView_Navigating(object sender, WebNavigatedEventArgs e)
+        private async void WebView_Navigating(object sender, WebNavigatedEventArgs e)
         {
-            if (e.Url.Contains("google"))
+            if (e.Url.Contains("/game/hidingok/"))
             {
-                //RestService restService = new RestService();
-                //await restService.GetDeviceData();
-                //int id = e.Url[e.Url.Length - 1];
+                int pointer = e.Url.Length - 1;
+                int id = 0;
+                int multiplier = 1;
+                while (IsNumber(e.Url[pointer]))
+                {
+                    id += Convert.ToInt32(e.Url[pointer]) * multiplier;
+                    multiplier *= 10;
+                    pointer--;
+                }
 
-                //webView.Navigation.
-                //webView.Source = new UrlWebViewSource { Url = "http://reddit.com/" };
-                //webView.IsEnabled = false;
-                //webView.IsEnabled = true;
+                RestService restService = new RestService();
+                await restService.GetDeviceData();
+                //var d = restService.DeviceData.FotoResistor
+                //var dataToSend = new Device { }
+                //restService.DeviceData.
 
-                //webView = new WebView
-                //{
-                //    Source = new UrlWebViewSource
-                //    {
-                //        Url = "http://reddit.com/"
-                //    },
-                //    VerticalOptions = LayoutOptions.FillAndExpand
-                //};
-                webView = null;
-                //e = new WebNavigatingEventArgs(e.NavigationEvent,e.Source,new Uri("http://reddit.com").ToString());
-                //e = null;
+
             }
+        }
+
+        private bool IsNumber(char c)
+        {
+            if (c != '0' && c != '1' && c != '2' && c != '3' && c != '4' && c != '5' && c != '6' && c != '7' && c != '8' && c != '9')
+                return false;
+            return true;
         }
     }
 }

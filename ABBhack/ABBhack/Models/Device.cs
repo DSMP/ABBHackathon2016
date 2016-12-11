@@ -8,8 +8,11 @@ namespace ABBhack.Models
 {
     class Device
     {
-        public float Temperature { get; set; }
+        public int ID { get; set; }
+        public double Longtitude { get; set; }
+        public double Latitude { get; set; }
         public float Humidity { get; set; }
-        public int FotoResistor { get; set; }
+        public float Temperature { get; set; }
+        public float Light { get; set; }
     }
 }

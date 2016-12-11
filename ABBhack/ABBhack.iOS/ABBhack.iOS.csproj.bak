@@ -10,7 +10,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>ABBhack.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>ABBhackiOS</AssemblyName>
+    <AssemblyName>ABBhack.iOS</AssemblyName>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>

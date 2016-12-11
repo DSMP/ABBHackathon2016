@@ -13,7 +13,7 @@ namespace ABBhack.Data
     {
         HttpClient client;
 
-        public Device DeviceData { get; protected set; }
+        public IoTDevice DeviceData { get; protected set; }
 
         public RestService()
         {
@@ -28,8 +28,16 @@ namespace ABBhack.Data
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                DeviceData = JsonConvert.DeserializeObject<Device>(content);
+                DeviceData = JsonConvert.DeserializeObject<IoTDevice>(content);
             }
+        }
+
+        public async Task PostDeviceData(Device d)
+        {
+            string restUrl = "http://dragonsiodev.azurewebsites.net/device/update";
+            var uri = new Uri(restUrl);
+            StringContent c = new StringContent(JsonConvert.SerializeObject(d));
+            await client.PostAsync(uri, c);
         }
     }
 }
