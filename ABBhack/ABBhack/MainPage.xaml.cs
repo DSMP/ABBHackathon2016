@@ -9,9 +9,18 @@ namespace ABBhack
 {
     public partial class MainPage : ContentPage
     {
+        static WebView refweb;
         public MainPage()
         {            
             InitializeComponent();
+
+            refweb = webView;
+            
+        }
+        
+        public static void cofnij()
+        {
+            refweb.GoBack();
         }
     }
 }
