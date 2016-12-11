@@ -12,9 +12,9 @@ namespace ABBhack
     class confwifirifi
     {
         String SSID = "DragonsIO";
-        String Pswd = "";
+        //String Pswd = "";
 
-        WifiConfiguration conf;
+        //WifiConfiguration conf;
 
         public confwifirifi()
         {
