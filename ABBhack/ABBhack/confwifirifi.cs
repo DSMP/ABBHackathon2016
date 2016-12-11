@@ -1,4 +1,5 @@
-﻿using Android.Content;
+﻿using Android.App;
+using Android.Content;
 using Android.Net.Wifi;
 using System;
 using System.Collections.Generic;
@@ -17,28 +18,38 @@ namespace ABBhack
 
         public confwifirifi()
         {
-            conf = new WifiConfiguration();
-            conf.Ssid = "\"" + SSID + "\"";
-            conf.WepKeys[0] = "\"" + Pswd + "\"";
-            conf.WepTxKeyIndex = 0;
-            conf.AllowedKeyManagement.Set(0); //WifiConfiguration.KeyMgmt.None
-                                              //conf.AllowedGroupCiphers.Set(0); //WifiConfiguration.GroupCipher.Wep40
+            //StartActivity(new Intent(Settings.ActionWifiSettings));
+            //return;
+            WifiManager wifiManager = (WifiManager)Application.Context.GetSystemService(Context.WifiService);
+            wifiManager.SetWifiEnabled(true);
 
-            WifiManager wifiManager = (WifiManager)Context.WifiService;
-            wifiManager.AddNetwork(conf);
+            WifiConfiguration wifiConfig = new WifiConfiguration();
+            wifiConfig.Ssid = string.Format("\"{0}\"", SSID);
+            wifiConfig.AllowedKeyManagement.Set(0);
+            //wifiConfig.Ssid = SSID;
+            //wifiConfig.PreSharedKey = string.Format("\"{0}\"", Pswd);
+            //wifiConfig.PreSharedKey = "\"\"";
 
-            List<WifiConfiguration> list = (List<WifiConfiguration>)wifiManager.ConfiguredNetworks;
-            for (WifiConfiguration i : list)
-            {
-                if (i.Ssid != null && i.Ssid.equals("\"" + SSID + "\""))
-                {
-                    wifiManager.Disconnect();
-                    wifiManager.EnableNetwork(i.networkId, true);
-                    wifiManager.Reconnect();
+            wifiManager.AddNetwork(wifiConfig);
 
-                    break;
-                }
-            }
+
+            int netId = wifiManager.AddNetwork(wifiConfig);
+            //wifiManager.SaveConfiguration();
+            wifiManager.Disconnect();
+            wifiManager.EnableNetwork(netId, true);
+            wifiManager.Reconnect();
+
+            //List<WifiConfiguration> list = (List<WifiConfiguration>)wifiManager.ConfiguredNetworks;
+            //foreach (WifiConfiguration i in list)
+            //{
+            //    if (i.Ssid != null && i.Ssid.Equals("\"" + SSID + "\""))
+            //    {
+            //        wifiManager.Disconnect();
+            //        wifiManager.EnableNetwork(i.NetworkId, true);
+            //        wifiManager.Reconnect();
+            //        break;
+            //    }
+            //}
         }
        
     }
