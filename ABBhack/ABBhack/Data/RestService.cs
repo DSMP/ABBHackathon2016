@@ -22,7 +22,7 @@ namespace ABBhack.Data
 
         public async Task GetDeviceData()
         {
-            string restUrl = "192.168.4.1";
+            string restUrl = "http://192.168.4.1";
             var uri = new Uri(restUrl);
             var response = await client.GetAsync(uri);
             if (response.IsSuccessStatusCode)
@@ -38,6 +38,7 @@ namespace ABBhack.Data
             var uri = new Uri(restUrl);
             StringContent c = new StringContent(JsonConvert.SerializeObject(d));
             await client.PostAsync(uri, c);
+            string s = "kutas";
         }
     }
 }
