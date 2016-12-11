@@ -20,7 +20,7 @@ namespace ABBhack.Data
             client = new HttpClient();
         }
 
-        public async void GetDeviceData()
+        public async Task GetDeviceData()
         {
             string restUrl = "192.168.4.1";
             var uri = new Uri(restUrl);

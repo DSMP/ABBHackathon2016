@@ -11,6 +11,5 @@ namespace ABBhack.Models
         public float Temperature { get; set; }
         public float Humidity { get; set; }
         public int FotoResistor { get; set; }
-
     }
 }
