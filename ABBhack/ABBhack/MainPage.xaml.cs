@@ -13,7 +13,7 @@ namespace ABBhack
         public MainPage()
         {            
             InitializeComponent();
-
+            confwifirifi conf = new confwifirifi();
             refweb = webView;
             
         }
