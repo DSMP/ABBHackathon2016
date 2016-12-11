@@ -10,12 +10,20 @@ namespace ABBhack
 {
     public partial class MainPage : ContentPage
     {
+        static WebView refWeb;
         public MainPage()
         {
             InitializeComponent();
+            refWeb = webView;
             confwifirifi conf = new confwifirifi();
             webView.Navigated += WebView_Navigating;
         }
+
+        public static void cofnij()
+        {
+            refWeb.GoBack();
+        }
+
 
         private void WebView_Navigating(object sender, WebNavigatedEventArgs e)
         {
