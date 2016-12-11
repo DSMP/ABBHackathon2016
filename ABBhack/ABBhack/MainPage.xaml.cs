@@ -11,24 +11,37 @@ namespace ABBhack
     public partial class MainPage : ContentPage
     {
         public MainPage()
-        {            
+        {
             InitializeComponent();
             confwifirifi conf = new confwifirifi();
-            webView.Navigating += WebView_Navigating;
-
+            webView.Navigated += WebView_Navigating;
         }
 
-        private async void WebView_Navigating(object sender, WebNavigatingEventArgs e)
+        private void WebView_Navigating(object sender, WebNavigatedEventArgs e)
         {
-            if (e.Url.Contains("game/hiding"))
+            if (e.Url.Contains("google"))
             {
-                RestService restService = new RestService();
-                await restService.GetDeviceData();
-                //restService.DeviceData;
-                //webView.
+                //RestService restService = new RestService();
+                //await restService.GetDeviceData();
+                //int id = e.Url[e.Url.Length - 1];
+
+                //webView.Navigation.
+                //webView.Source = new UrlWebViewSource { Url = "http://reddit.com/" };
+                //webView.IsEnabled = false;
+                //webView.IsEnabled = true;
+
+                //webView = new WebView
+                //{
+                //    Source = new UrlWebViewSource
+                //    {
+                //        Url = "http://reddit.com/"
+                //    },
+                //    VerticalOptions = LayoutOptions.FillAndExpand
+                //};
+                webView = null;
+                //e = new WebNavigatingEventArgs(e.NavigationEvent,e.Source,new Uri("http://reddit.com").ToString());
+                //e = null;
             }
-            
-            throw new NotImplementedException();
         }
     }
 }
